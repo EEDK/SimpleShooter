@@ -8,6 +8,7 @@
 void AGamePlayerController::GameHasEnded(AActor* EndGameFocus, bool bIsWinner)
 {
 	Super::GameHasEnded(EndGameFocus, bIsWinner);
+	
 	if(Hud != nullptr)
 	{
 		Hud->RemoveFromViewport();
@@ -16,6 +17,7 @@ void AGamePlayerController::GameHasEnded(AActor* EndGameFocus, bool bIsWinner)
 	if(bIsWinner)
 	{
 		UUserWidget* WinScreen = CreateWidget(this, WinScreenClass);
+
 		if(WinScreen != nullptr)
 		{
 			WinScreen->AddToViewport();

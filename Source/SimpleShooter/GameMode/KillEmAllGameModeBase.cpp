@@ -6,6 +6,7 @@
 #include "GameFramework/Controller.h"
 #include "../PlayerController/ShooterAIController.h"
 #include "Kismet/GameplayStatics.h"
+#include "SimpleShooter/Actor/ShooterCharacter.h"
 
 AKillEmAllGameModeBase::AKillEmAllGameModeBase()
 {
@@ -55,6 +56,13 @@ void AKillEmAllGameModeBase::EndGame(bool bIsPlayerWinner)
 	for (AController* Controller : TActorRange<AController>(GetWorld()))
 	{
 		const bool bIsPlayer = Controller->IsPlayerController();
+
+		// 플레이어 캐릭터가 있을시 bIsWin을 수정
+		AShooterCharacter* Player = Cast<AShooterCharacter>(Controller->GetPawn());
+		if(Player != nullptr)
+		{
+			Player->bIsWin = bIsPlayerWinner;
+		}
 		// 플레이어 일시 IsPlayerWinner의 값을 전달, AI일시 반대값을 전달
 		// Ex) 플레이어 승리 플레이어 -> true, AI -> false
 		bIsPlayer

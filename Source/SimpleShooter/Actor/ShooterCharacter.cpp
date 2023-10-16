@@ -141,6 +141,11 @@ bool AShooterCharacter::IsDead() const
 	return false;
 }
 
+bool AShooterCharacter::IsWin() const
+{
+	return bIsWin;
+}
+
 float AShooterCharacter::GetHealthPercent() const
 {
 	return Health / MaxHealth;
@@ -178,6 +183,7 @@ void AShooterCharacter::Reloading()
 {
 	Gun->Reloading();
 }
+
 
 void AShooterCharacter::Shot()
 {

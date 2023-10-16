@@ -37,5 +37,5 @@ private:
 
 	UPROPERTY()
 	UUserWidget* Hud;
-
+	
 };

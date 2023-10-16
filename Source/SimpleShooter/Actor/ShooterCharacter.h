@@ -35,13 +35,19 @@ public:
 	bool IsDead() const;
 
 	UFUNCTION(BlueprintPure)
-	float GetHealthPercent() const;
+	bool IsWin() const;
+	
+	bool bIsWin = false;
 
+	UFUNCTION(BlueprintPure)
+	float GetHealthPercent() const;
+	
 	UFUNCTION(BlueprintPure)
 	int GetAmmo() const;
 	
 	void Shot();
 	void Reloading();
+	
 
 	// Input Section
 protected:
@@ -89,5 +95,5 @@ private:
 	TSubclassOf<AGun> GunClass;
 
 	UPROPERTY()
-	 AGun* Gun;
+	AGun* Gun;
 };
