@@ -1,6 +1,9 @@
 # Visual Studio 2015 user specific files
 .vs/
 
+.idea
+Platform/HoloLens/Config
+
 # Compiled Object files
 *.slo
 *.lo
